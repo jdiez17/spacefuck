@@ -1,6 +1,6 @@
 from spacefuck.language import Commands
 from spacefuck.utils import getch
-from sys import stdout
+from sys import stdout, exit
 
 class SFInterpreter(object):
     _pointer = 0
@@ -48,7 +48,7 @@ class SFInterpreter(object):
             assert len(stack) == 0
         except AssertionError:
             print "The number of LOOP BEGIN commands is not equal to the number of LOOP END commands."
-            sys.exit(1)
+            exit(1)
 
     def step(self, opcode):
         if opcode in Commands:
